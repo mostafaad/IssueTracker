@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{72556088-72C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{EF1F7571-28D6-4404-9E3F-38FD71A71955}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssueTracker.WebUI", "..\Src\Presentation\IssueTracker.WebUI\IssueTracker.WebUI.csproj", "{B144772A-D1A9-4069-B516-BFEA484B1ACB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssueTracker.WebUI", "Src\Presentation\IssueTracker.WebUI\IssueTracker.WebUI.csproj", "{B144772A-D1A9-4069-B516-BFEA484B1ACB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
