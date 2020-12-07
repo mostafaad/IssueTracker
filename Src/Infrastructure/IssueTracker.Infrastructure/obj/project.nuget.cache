@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "T+pgxcy6LAR7Cwk4guvJJS0Z8G31SJUPy6tUZ1WtZ6CG14O5L/qkWy4bM8RbwMyAwnIUSb7Ye7MPPgy5QqID5w==",
+  "dgSpecHash": "8jU5Ba9y7jm0k5SO7mlLGX4GLT9efiDekeHTgZNjaL4PmNq1A+i8abkgp3cxO4B7b9o4nuwvL+saH19w6Hc6BQ==",
   "success": true,
   "projectFilePath": "D:\\Task\\Src\\Infrastructure\\IssueTracker.Infrastructure\\IssueTracker.Infrastructure.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\asus\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\automapper\\10.1.0\\automapper.10.1.0.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\identitymodel\\4.4.0\\identitymodel.4.4.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\identityserver4\\4.1.0\\identityserver4.4.1.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\identityserver4.aspnetidentity\\4.1.0\\identityserver4.aspnetidentity.4.1.0.nupkg.sha512",
