@@ -1,0 +1,17 @@
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\bin\Debug\net5.0\IssueTracker.Application.dll
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\obj\Debug\net5.0\IssueTracker.Infrastructure.Identity.csprojAssemblyReference.cache
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\obj\Debug\net5.0\IssueTracker.Infrastructure.Identity.GeneratedMSBuildEditorConfig.editorconfig
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\obj\Debug\net5.0\IssueTracker.Infrastructure.Identity.AssemblyInfoInputs.cache
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\obj\Debug\net5.0\IssueTracker.Infrastructure.Identity.AssemblyInfo.cs
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\bin\Debug\net5.0\IssueTracker.Domain.dll
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\bin\Debug\net5.0\IssueTracker.Infrastructure.Identity.deps.json
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\bin\Debug\net5.0\IssueTracker.Infrastructure.Identity.dll
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\bin\Debug\net5.0\ref\IssueTracker.Infrastructure.Identity.dll
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\bin\Debug\net5.0\IssueTracker.Infrastructure.Identity.pdb
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\bin\Debug\net5.0\IssueTracker.Application.pdb
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\bin\Debug\net5.0\IssueTracker.Domain.pdb
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\obj\Debug\net5.0\IssueTracker.Infrastructure.Identity.csproj.CoreCompileInputs.cache
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\obj\Debug\net5.0\IssueTracker.Infrastructure.Identity.csproj.CopyComplete
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\obj\Debug\net5.0\IssueTracker.Infrastructure.Identity.dll
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\obj\Debug\net5.0\ref\IssueTracker.Infrastructure.Identity.dll
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure.Identity\obj\Debug\net5.0\IssueTracker.Infrastructure.Identity.pdb

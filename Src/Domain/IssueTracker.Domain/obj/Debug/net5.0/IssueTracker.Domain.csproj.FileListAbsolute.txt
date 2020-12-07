@@ -1,0 +1,11 @@
+D:\Task\Src\Domain\IssueTracker.Domain\bin\Debug\net5.0\IssueTracker.Domain.deps.json
+D:\Task\Src\Domain\IssueTracker.Domain\bin\Debug\net5.0\IssueTracker.Domain.dll
+D:\Task\Src\Domain\IssueTracker.Domain\bin\Debug\net5.0\ref\IssueTracker.Domain.dll
+D:\Task\Src\Domain\IssueTracker.Domain\bin\Debug\net5.0\IssueTracker.Domain.pdb
+D:\Task\Src\Domain\IssueTracker.Domain\obj\Debug\net5.0\IssueTracker.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Task\Src\Domain\IssueTracker.Domain\obj\Debug\net5.0\IssueTracker.Domain.AssemblyInfoInputs.cache
+D:\Task\Src\Domain\IssueTracker.Domain\obj\Debug\net5.0\IssueTracker.Domain.AssemblyInfo.cs
+D:\Task\Src\Domain\IssueTracker.Domain\obj\Debug\net5.0\IssueTracker.Domain.csproj.CoreCompileInputs.cache
+D:\Task\Src\Domain\IssueTracker.Domain\obj\Debug\net5.0\IssueTracker.Domain.dll
+D:\Task\Src\Domain\IssueTracker.Domain\obj\Debug\net5.0\ref\IssueTracker.Domain.dll
+D:\Task\Src\Domain\IssueTracker.Domain\obj\Debug\net5.0\IssueTracker.Domain.pdb
