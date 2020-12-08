@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "e+vSdXLnGSB73Ln7H0MbW/FfWB0+njCDrSrukCXAsxBAHAoo34eqq47COVtalTmzOjgOfIQ4x19+PCcOKBJTxQ==",
+  "dgSpecHash": "+l4CcLAA5GLQOCVnZyeKFZLwTgr+yGBdjGMy+SLCbE932Eec0zwMoV5zE7BcK3tG/6yUtJjWd4rLDaHA9klRvw==",
   "success": true,
   "projectFilePath": "D:\\Task\\Src\\Infrastructure\\IssueTracker.Infrastructure.Repository\\IssueTracker.Infrastructure.Repository.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\asus\\.nuget\\packages\\identityserver4.entityframework\\4.1.0\\identityserver4.entityframework.4.1.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\identityserver4.entityframework.storage\\4.1.0\\identityserver4.entityframework.storage.4.1.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\identityserver4.storage\\4.1.0\\identityserver4.storage.4.1.0.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.apiauthorization.identityserver\\5.0.0\\microsoft.aspnetcore.apiauthorization.identityserver.5.0.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.0\\microsoft.aspnetcore.authentication.jwtbearer.5.0.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\3.1.0\\microsoft.aspnetcore.authentication.openidconnect.3.1.0.nupkg.sha512",

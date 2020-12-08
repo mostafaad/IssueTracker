@@ -9,7 +9,7 @@ namespace IssueTracker.WebUI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProjectController : ControllerBase
+    public class ProjectController : ApiController
     {
 
     }
