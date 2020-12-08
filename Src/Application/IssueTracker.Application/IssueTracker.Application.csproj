@@ -6,8 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Project\Commands\" />
-    <Folder Include="Features\Project\ViewModels\" />
-    <Folder Include="Features\Project\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\IssueTracker.Domain\IssueTracker.Domain.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\IssueTracker.Infrastructure.Repository\IssueTracker.Infrastructure.Repository.csproj" />
   </ItemGroup>
 
 </Project>

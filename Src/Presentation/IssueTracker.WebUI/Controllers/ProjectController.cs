@@ -11,6 +11,10 @@ namespace IssueTracker.WebUI.Controllers
     [ApiController]
     public class ProjectController : ApiController
     {
-
+        [HttpGet]
+        public async Task<ActionResult> Get()
+        {
+            return await Mediator.Send(new GetCategoryQuery());
+        }
     }
 }

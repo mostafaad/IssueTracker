@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Application\IssueTracker.Application\IssueTracker.Application.csproj" />
     <ProjectReference Include="..\..\Domain\IssueTracker.Domain\IssueTracker.Domain.csproj" />
   </ItemGroup>
 

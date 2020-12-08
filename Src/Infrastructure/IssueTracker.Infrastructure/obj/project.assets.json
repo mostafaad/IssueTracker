@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "AutoMapper/10.1.0": {
+      "AutoMapper/10.0.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
@@ -13,20 +13,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/AutoMapper.dll": {}
-        }
-      },
-      "AutoMapper.Extensions.Microsoft.DependencyInjection/8.1.0": {
-        "type": "package",
-        "dependencies": {
-          "AutoMapper": "[10.1.0, 11.0.0)",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.0.0",
-          "Microsoft.Extensions.Options": "3.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
       "IdentityModel/4.4.0": {
@@ -113,15 +99,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/IdentityServer4.Storage.dll": {}
-        }
-      },
-      "MediatR/9.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.1/MediatR.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.1/MediatR.dll": {}
         }
       },
       "Microsoft.AspNetCore.ApiAuthorization.IdentityServer/5.0.0": {
@@ -619,22 +596,6 @@
           "lib/netstandard2.1/System.Text.Encodings.Web.dll": {}
         }
       },
-      "IssueTracker.Application/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.0",
-          "IssueTracker.Domain": "1.0.0",
-          "MediatR": "9.0.0",
-          "Microsoft.EntityFrameworkCore": "5.0.0"
-        },
-        "compile": {
-          "bin/placeholder/IssueTracker.Application.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/IssueTracker.Application.dll": {}
-        }
-      },
       "IssueTracker.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -651,33 +612,20 @@
     }
   },
   "libraries": {
-    "AutoMapper/10.1.0": {
-      "sha512": "qxn9+PpQJD53PAUHGXW3HTcq6Rxbv3Pyq/jTcc60ZYwOygyqUfHIY3HBChKbDwtTHdlwlQqJeJ1ckVcaoytxxw==",
+    "AutoMapper/10.0.0": {
+      "sha512": "T09NoqMZBqw0/JEauXulxnmmerl0Zj03e0r6VCcJ0LURWBIaYxZPPoiDv8bHf5Y4x2xcXJp4JPXoCaeOMJfHEA==",
       "type": "package",
-      "path": "automapper/10.1.0",
+      "path": "automapper/10.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "automapper.10.1.0.nupkg.sha512",
+        "automapper.10.0.0.nupkg.sha512",
         "automapper.nuspec",
         "icon.png",
         "lib/net461/AutoMapper.dll",
         "lib/net461/AutoMapper.xml",
         "lib/netstandard2.0/AutoMapper.dll",
         "lib/netstandard2.0/AutoMapper.xml"
-      ]
-    },
-    "AutoMapper.Extensions.Microsoft.DependencyInjection/8.1.0": {
-      "sha512": "dQyGCAYcHbGuimVvCMu4Ea2S1oYOlgO9XfVdClmY5wgygJMZoS57emPzH0qNfknmtzMm4QbDO9i237W5IDjU1A==",
-      "type": "package",
-      "path": "automapper.extensions.microsoft.dependencyinjection/8.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
-        "automapper.extensions.microsoft.dependencyinjection.nuspec",
-        "icon.png",
-        "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
       ]
     },
     "IdentityModel/4.4.0": {
@@ -774,24 +722,6 @@
         "lib/netstandard2.0/IdentityServer4.Storage.dll",
         "lib/netstandard2.0/IdentityServer4.Storage.pdb",
         "lib/netstandard2.0/IdentityServer4.Storage.xml"
-      ]
-    },
-    "MediatR/9.0.0": {
-      "sha512": "8b3UYNxegHVYcJMG2zH8wn+YqxLvXG+eMfj0cMCq/jTW72p6O3PCKMkrIv0mqyxdW7bA4gblsocw7n+/9Akg5g==",
-      "type": "package",
-      "path": "mediatr/9.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "gradient_128x128.png",
-        "lib/net461/MediatR.dll",
-        "lib/net461/MediatR.xml",
-        "lib/netstandard2.0/MediatR.dll",
-        "lib/netstandard2.0/MediatR.xml",
-        "lib/netstandard2.1/MediatR.dll",
-        "lib/netstandard2.1/MediatR.xml",
-        "mediatr.9.0.0.nupkg.sha512",
-        "mediatr.nuspec"
       ]
     },
     "Microsoft.AspNetCore.ApiAuthorization.IdentityServer/5.0.0": {
@@ -1781,11 +1711,6 @@
         "version.txt"
       ]
     },
-    "IssueTracker.Application/1.0.0": {
-      "type": "project",
-      "path": "../../Application/IssueTracker.Application/IssueTracker.Application.csproj",
-      "msbuildProject": "../../Application/IssueTracker.Application/IssueTracker.Application.csproj"
-    },
     "IssueTracker.Domain/1.0.0": {
       "type": "project",
       "path": "../../Domain/IssueTracker.Domain/IssueTracker.Domain.csproj",
@@ -1794,7 +1719,6 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "IssueTracker.Application >= 1.0.0",
       "IssueTracker.Domain >= 1.0.0",
       "Microsoft.AspNetCore.ApiAuthorization.IdentityServer >= 5.0.0"
     ]
@@ -1828,9 +1752,6 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Task\\Src\\Application\\IssueTracker.Application\\IssueTracker.Application.csproj": {
-              "projectPath": "D:\\Task\\Src\\Application\\IssueTracker.Application\\IssueTracker.Application.csproj"
-            },
             "D:\\Task\\Src\\Domain\\IssueTracker.Domain\\IssueTracker.Domain.csproj": {
               "projectPath": "D:\\Task\\Src\\Domain\\IssueTracker.Domain\\IssueTracker.Domain.csproj"
             }

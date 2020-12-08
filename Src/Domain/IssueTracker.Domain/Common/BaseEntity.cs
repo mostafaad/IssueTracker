@@ -2,8 +2,10 @@
 
 namespace IssueTracker.Domain.Common
 {
-    public class AuditableEntity
+    public class BaseEntity
     {
+        public int Id { get; set; }
+
         public DateTime Created { get; set; }
 
         public string CreatedBy { get; set; }
@@ -11,5 +13,9 @@ namespace IssueTracker.Domain.Common
         public DateTime? LastModified { get; set; }
 
         public string LastModifiedBy { get; set; }
+
+        public bool IsDeleted { get; set; }
+        public bool IsPublished { get; set; }
+
     }
 }

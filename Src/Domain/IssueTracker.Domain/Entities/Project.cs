@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace IssueTracker.Domain.Entities
 {
-   public class Project: AuditableEntity
+   public class Project: BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Key { get; set; }
         public string Owner { get; set; }
