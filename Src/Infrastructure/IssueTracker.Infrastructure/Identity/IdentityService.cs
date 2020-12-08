@@ -1,6 +1,6 @@
 ﻿using IssueTracker.Application.Common.Interfaces;
 using IssueTracker.Application.Models;
-using IssueTracker.Infrastructure.Identity.Model;
+using IssueTracker.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

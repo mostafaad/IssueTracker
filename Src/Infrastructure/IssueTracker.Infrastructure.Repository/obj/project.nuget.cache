@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kCRJ3hLK4wZqEMZ0GjMgxsJTYRp2Mb3e/mBwLbUEKH11xV88G9q9VrJSZT8Zr7PbpPx18pVBKPCIeJr0dJtiJQ==",
+  "dgSpecHash": "e+vSdXLnGSB73Ln7H0MbW/FfWB0+njCDrSrukCXAsxBAHAoo34eqq47COVtalTmzOjgOfIQ4x19+PCcOKBJTxQ==",
   "success": true,
   "projectFilePath": "D:\\Task\\Src\\Infrastructure\\IssueTracker.Infrastructure.Repository\\IssueTracker.Infrastructure.Repository.csproj",
   "expectedPackageFiles": [
@@ -15,12 +15,10 @@
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.apiauthorization.identityserver\\5.0.0\\microsoft.aspnetcore.apiauthorization.identityserver.5.0.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.0\\microsoft.aspnetcore.authentication.jwtbearer.5.0.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\3.1.0\\microsoft.aspnetcore.authentication.openidconnect.3.1.0.nupkg.sha512",
-    "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.0\\microsoft.aspnetcore.authorization.5.0.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.0\\microsoft.aspnetcore.cryptography.internal.5.0.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.0\\microsoft.aspnetcore.cryptography.keyderivation.5.0.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\5.0.0\\microsoft.aspnetcore.identity.entityframeworkcore.5.0.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\5.0.0\\microsoft.aspnetcore.identity.ui.5.0.0.nupkg.sha512",
-    "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.metadata\\5.0.0\\microsoft.aspnetcore.metadata.5.0.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.0\\microsoft.entityframeworkcore.5.0.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.0\\microsoft.entityframeworkcore.abstractions.5.0.0.nupkg.sha512",

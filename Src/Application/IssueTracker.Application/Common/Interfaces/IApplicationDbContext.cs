@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 
 namespace IssueTracker.Application.Common.Interfaces
 {
-   public interface IApplicationDbContext
+    public interface IApplicationDbContext
     {
-        DbSet<TodoList> TodoLists { get; set; }
-        DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Issue> Issues { get; set; }
+        public DbSet<Participants> Participants { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

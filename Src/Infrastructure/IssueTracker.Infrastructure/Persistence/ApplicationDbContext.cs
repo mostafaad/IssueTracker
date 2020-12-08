@@ -2,7 +2,6 @@
 using IssueTracker.Application.Common.Interfaces;
 using IssueTracker.Domain.Common;
 using IssueTracker.Domain.Entities;
-using IssueTracker.Infrastructure.Identity.Model;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -30,9 +29,9 @@ namespace IssueTracker.Infrastructure.Persistence
             _domainEventService = domainEventService;
             _dateTime = dateTime;
         }
-
-        public DbSet<TodoItem> TodoItems { get; set; }
-        public DbSet<TodoList> TodoLists { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Issue> Issues { get; set; }
+        public DbSet<Participants> Participants { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {

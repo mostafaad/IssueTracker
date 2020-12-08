@@ -1,11 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\" />
+    <Folder Include="Features\Project\Commands\" />
+    <Folder Include="Features\Project\ViewModels\" />
+    <Folder Include="Features\Project\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
