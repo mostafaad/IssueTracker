@@ -15,5 +15,8 @@ namespace IssueTracker.Domain.Entities
         public string Reporter { get; set; }
         public string Assignee { get; set; }
         public Status Status { get; set; }
+        public int ProjectId { get; set; }
+
+        public Project Project { get; set; }
     }
 }

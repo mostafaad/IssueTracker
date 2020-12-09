@@ -10,7 +10,10 @@ namespace IssueTracker.Domain.Entities
   public  class Participants: BaseEntity
     {
         public int ProjectId { get; set; }
+        public Project Project { get; set; }
+
         public string ParticipantUser { get; set; }
         public ApplicationUser User { get; set; }
+
     }
 }

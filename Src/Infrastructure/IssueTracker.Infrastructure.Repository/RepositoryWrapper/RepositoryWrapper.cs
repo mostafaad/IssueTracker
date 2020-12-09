@@ -11,9 +11,16 @@ namespace IssueTracker.Infrastructure.Repository.RepositoryWrapper
    public class RepositoryWrapper: IRepositoryWrapper
     {
         private ApplicationDbContext _repoContext;
-
         public IProjectRepository _Project;
 
+        public RepositoryWrapper(ApplicationDbContext repositoryContext)
+        {
+            _repoContext = repositoryContext;
+        }
+        public void Save()
+        {
+            _repoContext.SaveChanges();
+        }
 
         public IProjectRepository Project 
         {

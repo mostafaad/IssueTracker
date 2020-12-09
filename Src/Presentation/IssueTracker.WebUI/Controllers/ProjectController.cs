@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using IssueTracker.Application.Features.Projects.Commands;
+using IssueTracker.Application.Features.Projects.Queries;
+using IssueTracker.Application.Features.Projects.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -14,7 +17,13 @@ namespace IssueTracker.WebUI.Controllers
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-            return await Mediator.Send(new GetCategoryQuery());
+            return Ok(await Mediator.Send(new GetProjectListQuery()));
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Create(ProjectViewModel model)
+        {
+            return Ok(await Mediator.Send(new CreateProjectCommand() { project= model }));
         }
     }
 }

@@ -13,3 +13,7 @@ D:\Task\Src\Application\IssueTracker.Application\obj\Debug\net5.0\IssueTracker.A
 D:\Task\Src\Application\IssueTracker.Application\obj\Debug\net5.0\IssueTracker.Application.dll
 D:\Task\Src\Application\IssueTracker.Application\obj\Debug\net5.0\ref\IssueTracker.Application.dll
 D:\Task\Src\Application\IssueTracker.Application\obj\Debug\net5.0\IssueTracker.Application.pdb
+D:\Task\Src\Application\IssueTracker.Application\bin\Debug\net5.0\IssueTracker.Infrastructure.dll
+D:\Task\Src\Application\IssueTracker.Application\bin\Debug\net5.0\IssueTracker.Infrastructure.Repository.dll
+D:\Task\Src\Application\IssueTracker.Application\bin\Debug\net5.0\IssueTracker.Infrastructure.Repository.pdb
+D:\Task\Src\Application\IssueTracker.Application\bin\Debug\net5.0\IssueTracker.Infrastructure.pdb

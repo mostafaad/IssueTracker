@@ -9,15 +9,14 @@ using System.Threading.Tasks;
 
 namespace IssueTracker.Infrastructure.Persistence.Configurations
 {
-    public class TodoItemConfiguration : IEntityTypeConfiguration<TodoItem>
-    {
-        public void Configure(EntityTypeBuilder<TodoItem> builder)
-        {
-            //builder.Ignore(e => e.DomainEvents);
 
-            //builder.Property(t => t.Title)
-            //    .HasMaxLength(200)
-            //    .IsRequired();
+    public class IssueConfiguration : IEntityTypeConfiguration<Issue>
+    {
+        public void Configure(EntityTypeBuilder<Issue> builder)
+        {
+            builder.HasKey(s => s.Id);
+            builder.HasOne(c => c.Project).WithMany(c => c.Issues).HasForeignKey(c => c.ProjectId);
+
         }
     }
 }

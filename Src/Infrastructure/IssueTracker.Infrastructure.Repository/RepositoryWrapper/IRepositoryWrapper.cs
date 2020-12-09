@@ -10,6 +10,7 @@ namespace IssueTracker.Infrastructure.Repository.RepositoryWrapper
     public interface IRepositoryWrapper
     {
         IProjectRepository Project { get; }
+        void Save();
 
     }
 }

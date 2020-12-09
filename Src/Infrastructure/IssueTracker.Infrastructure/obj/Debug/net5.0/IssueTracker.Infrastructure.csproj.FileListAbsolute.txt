@@ -2,12 +2,8 @@ D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\bin\Debug\net5.0\IssueTra
 D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\bin\Debug\net5.0\IssueTracker.Infrastructure.dll
 D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\bin\Debug\net5.0\ref\IssueTracker.Infrastructure.dll
 D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\bin\Debug\net5.0\IssueTracker.Infrastructure.pdb
-D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\bin\Debug\net5.0\IssueTracker.Application.dll
 D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\bin\Debug\net5.0\IssueTracker.Domain.dll
-D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\bin\Debug\net5.0\IssueTracker.Infrastructure.Identity.dll
-D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\bin\Debug\net5.0\IssueTracker.Application.pdb
 D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\bin\Debug\net5.0\IssueTracker.Domain.pdb
-D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\bin\Debug\net5.0\IssueTracker.Infrastructure.Identity.pdb
 D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\obj\Debug\net5.0\IssueTracker.Infrastructure.csprojAssemblyReference.cache
 D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\obj\Debug\net5.0\IssueTracker.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\obj\Debug\net5.0\IssueTracker.Infrastructure.AssemblyInfoInputs.cache
@@ -17,3 +13,6 @@ D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\obj\Debug\net5.0\IssueTra
 D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\obj\Debug\net5.0\IssueTracker.Infrastructure.dll
 D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\obj\Debug\net5.0\ref\IssueTracker.Infrastructure.dll
 D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\obj\Debug\net5.0\IssueTracker.Infrastructure.pdb
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\bin\Debug\net5.0\IssueTracker.Infrastructure.runtimeconfig.json
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\bin\Debug\net5.0\IssueTracker.Infrastructure.runtimeconfig.dev.json
+D:\Task\Src\Infrastructure\IssueTracker.Infrastructure\obj\Debug\net5.0\IssueTracker.Infrastructure.genruntimeconfig.cache
