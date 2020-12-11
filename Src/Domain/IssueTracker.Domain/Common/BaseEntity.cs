@@ -2,7 +2,7 @@
 
 namespace IssueTracker.Domain.Common
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         public int Id { get; set; }
 
@@ -15,7 +15,6 @@ namespace IssueTracker.Domain.Common
         public string LastModifiedBy { get; set; }
 
         public bool IsDeleted { get; set; }
-        public bool IsPublished { get; set; }
 
     }
 }

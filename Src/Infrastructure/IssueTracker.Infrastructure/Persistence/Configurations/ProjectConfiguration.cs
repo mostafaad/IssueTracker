@@ -15,7 +15,6 @@ namespace IssueTracker.Infrastructure.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Project> builder)
         {
             builder.HasKey(s => s.Id);
-            builder.HasIndex(c => c.Owner).IsUnique();
             builder.HasOne(c => c.User).WithMany(d => d.Projects).HasForeignKey(c => c.Owner);
 
         }

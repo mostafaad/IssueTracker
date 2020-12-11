@@ -8,6 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using MediatR;
+using IssueTracker.Application;
+using IssueTracker.Infrastructure.Repository;
+using IssueTracker.Application.Common.Interfaces;
+using IssueTracker.WebUI.Services;
+using IssueTracker.Infrastructure.ExceptionHandling;
 
 namespace IssueTracker.WebUI
 {
@@ -23,6 +30,10 @@ namespace IssueTracker.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddApplication();
+            services.ConfigureRepositoryWrapper();
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -32,8 +43,15 @@ namespace IssueTracker.WebUI
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi", Version = "v1" });
+            });
+
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
@@ -49,6 +67,8 @@ namespace IssueTracker.WebUI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseExceptionHandlerMiddleware();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -67,6 +87,8 @@ namespace IssueTracker.WebUI
             {
                 app.UseSpaStaticFiles();
             }
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1"));
 
             app.UseRouting();
 

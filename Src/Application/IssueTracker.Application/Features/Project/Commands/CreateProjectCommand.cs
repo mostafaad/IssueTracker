@@ -13,19 +13,19 @@ using System.Threading.Tasks;
 
 namespace IssueTracker.Application.Features.Projects.Commands
 {
-   public class CreateProjectCommand : IRequest
+    public class CreateProjectCommand : IRequest<Project>
     {
         public ProjectViewModel project { get; set; }
 
     }
 
-    public class CreateProjectCommandHandler : IRequestHandler<CreateProjectCommand>
+    public class CreateProjectCommandHandler : IRequestHandler<CreateProjectCommand, Project>
     {
         private readonly IMapper _mapper;
         private readonly ICurrentUserService _currentUserInfo;
         private readonly IRepositoryWrapper _wrapper;
 
-        public CreateProjectCommandHandler( IMapper mapper, ICurrentUserService currentUserInfo, IRepositoryWrapper wrapper)
+        public CreateProjectCommandHandler(IMapper mapper, ICurrentUserService currentUserInfo, IRepositoryWrapper wrapper)
         {
             _mapper = mapper;
             _currentUserInfo = currentUserInfo;
@@ -33,14 +33,15 @@ namespace IssueTracker.Application.Features.Projects.Commands
 
         }
 
-        public async Task<Unit> Handle(CreateProjectCommand request, CancellationToken cancellationToken)
+        public async Task<Project> Handle(CreateProjectCommand request, CancellationToken cancellationToken)
         {
             var ProjectObj = _mapper.Map<Project>(request.project);
+            ProjectObj.Owner = _currentUserInfo.UserId;
             _wrapper.Project.Create(ProjectObj);
 
-            _wrapper.Save();
+            await  _wrapper.SaveChangesAsync(cancellationToken);
 
-            return Unit.Value;
+            return ProjectObj;
         }
     }
 }

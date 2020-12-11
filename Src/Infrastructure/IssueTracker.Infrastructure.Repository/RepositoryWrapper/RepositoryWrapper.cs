@@ -1,28 +1,41 @@
-﻿using IssueTracker.Infrastructure.Persistence;
+﻿using IssueTracker.Domain.Common;
+using IssueTracker.Infrastructure.Persistence;
 using IssueTracker.Infrastructure.Repository.Repositories.ProjectRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace IssueTracker.Infrastructure.Repository.RepositoryWrapper
 {
-   public class RepositoryWrapper: IRepositoryWrapper
+    public class RepositoryWrapper : IRepositoryWrapper
     {
         private ApplicationDbContext _repoContext;
         public IProjectRepository _Project;
-
         public RepositoryWrapper(ApplicationDbContext repositoryContext)
         {
             _repoContext = repositoryContext;
         }
-        public void Save()
+
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
-            _repoContext.SaveChanges();
+            foreach (var entry in _repoContext.ChangeTracker.Entries<BaseEntity>())
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        entry.Entity.Created = DateTime.UtcNow;
+                        break;
+                    case EntityState.Modified:
+                        entry.Entity.LastModified = DateTime.UtcNow;
+                        break;
+                }
+            }
+
+            return await _repoContext.SaveChangesAsync(cancellationToken);
         }
 
-        public IProjectRepository Project 
+        public IProjectRepository Project
         {
             get
             {

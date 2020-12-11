@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -13,10 +12,17 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { CreateUpdateProjectComponent } from './project/create-update-project/create-update-project.component';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { ListIssuesComponent } from './project/list-issues/list-issues.component';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    ListIssuesComponent,
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
@@ -26,6 +32,8 @@ import { CreateUpdateProjectComponent } from './project/create-update-project/cr
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
+    ReactiveFormsModule,
+    SimpleNotificationsModule.forRoot(),
     FormsModule,
     ApiAuthorizationModule,
     RouterModule.forRoot([
@@ -33,8 +41,10 @@ import { CreateUpdateProjectComponent } from './project/create-update-project/cr
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
       { path: 'create-project', component: CreateUpdateProjectComponent, canActivate: [AuthorizeGuard] },
-
-    ])
+      { path: 'project/:id/issues', component: ListIssuesComponent, canActivate: [AuthorizeGuard] }
+    ]),
+    GridModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

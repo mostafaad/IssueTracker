@@ -1,6 +1,7 @@
 ﻿using IssueTracker.Application.Features.Projects.Commands;
 using IssueTracker.Application.Features.Projects.Queries;
 using IssueTracker.Application.Features.Projects.ViewModels;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,6 +15,8 @@ namespace IssueTracker.WebUI.Controllers
     [ApiController]
     public class ProjectController : ApiController
     {
+
+
         [HttpGet]
         public async Task<ActionResult> Get()
         {
@@ -23,7 +26,7 @@ namespace IssueTracker.WebUI.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(ProjectViewModel model)
         {
-            return Ok(await Mediator.Send(new CreateProjectCommand() { project= model }));
+            return Ok(await Mediator.Send(new CreateProjectCommand() { project = model }));
         }
     }
 }

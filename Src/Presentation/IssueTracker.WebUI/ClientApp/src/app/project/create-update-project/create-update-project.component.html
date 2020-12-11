@@ -1,1 +1,27 @@
-<p>create-update-project works!</p>
+
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+  <fieldset >
+    <legend>Create project</legend>
+
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input type="text" class="form-control" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required">Project name is required</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Key</label>
+      <input class="form-control" formControlName="key"  [ngClass]="{ 'is-invalid': submitted && f.key.errors }" />
+      <div *ngIf="submitted && f.key.errors" class="invalid-feedback">
+        <div *ngIf="f.key.errors.required">Key is required</div>
+        <div *ngIf="f.key.errors.maxlength">Key Maxlength is 4 letters</div>
+        <div *ngIf="f.key.errors.minlength">Key MinLength is 3 letters</div>
+        <div *ngIf="f.key.errors.pattern">All letters must be capitalized</div>
+      </div>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+  </fieldset>
+
+</form>
