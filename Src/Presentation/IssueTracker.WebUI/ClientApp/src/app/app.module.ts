@@ -6,8 +6,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
@@ -16,7 +14,10 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 import { ListIssuesComponent } from './project/list-issues/list-issues.component';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { DialogsModule } from '@progress/kendo-angular-dialog';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -25,8 +26,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ListIssuesComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     CreateUpdateProjectComponent
   ],
   imports: [
@@ -35,16 +34,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     SimpleNotificationsModule.forRoot(),
     FormsModule,
+    NgSelectModule,
     ApiAuthorizationModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
+      { path: '', redirectTo: 'home', pathMatch: 'full'  },
+      { path: 'home', component: HomeComponent, canActivate: [AuthorizeGuard]  },
       { path: 'create-project', component: CreateUpdateProjectComponent, canActivate: [AuthorizeGuard] },
       { path: 'project/:id/issues', component: ListIssuesComponent, canActivate: [AuthorizeGuard] }
     ]),
     GridModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DialogsModule,
+    ButtonsModule,
+    DropDownsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

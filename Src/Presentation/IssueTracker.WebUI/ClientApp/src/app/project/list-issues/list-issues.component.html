@@ -1,1 +1,52 @@
-<p>list-issues works!</p>
+<button class="btn btn-primary" *ngIf="!dialogOpened && !windowOpened" (click)="open('dialog')">Create</button>
+
+<h4>Issues List</h4>
+<hr />
+<kendo-dialog title="Create issue" *ngIf="dialogOpened" (close)="close('dialog')" [minWidth]="250" [width]="450">
+  <form [formGroup]="issueForm" (ngSubmit)="onSubmit()">
+    <fieldset>
+
+      <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" class="form-control" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" />
+        <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+          <div *ngIf="f.title.errors.required">Issue title is required</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea class="form-control" formControlName="description"
+                  [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
+        <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+          <div *ngIf="f.description.errors.required">Description is required</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Assignee</label>
+        <kendo-dropdownlist  [data]="AssigneeItems"
+                            [filterable]="true"
+                            [textField]="'email'"
+                            [valueField]="'id'" 
+                            class="form-control">
+        </kendo-dropdownlist>
+
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Status</label>
+        <kendo-dropdownlist [data]="status"
+                            [textField]="'text'"
+                            [valueField]="'value'"
+                            class="form-control">
+        </kendo-dropdownlist>
+
+
+      </div>
+    </fieldset>
+
+    <kendo-dialog-actions>
+      <button kendoButton  (click)="action('no')">Cancel</button>
+      <button kendoButton type="submit"  primary="true">Create</button>
+    </kendo-dialog-actions>
+  </form>
+
+</kendo-dialog>

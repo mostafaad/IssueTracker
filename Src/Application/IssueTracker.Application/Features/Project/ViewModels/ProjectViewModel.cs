@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using IssueTracker.Application.Common.Mappings;
 using IssueTracker.Domain.Entities;
+using System;
 
 namespace IssueTracker.Application.Features.Projects.ViewModels
 {
@@ -10,6 +11,8 @@ namespace IssueTracker.Application.Features.Projects.ViewModels
         public string Name { get; set; }
         public string Key { get; set; }
         public string Owner { get; set; }
+        public DateTime Created { get; set; }
+
         public ApplicationUser User { get; set; }
 
         public void Mapping(Profile profile)

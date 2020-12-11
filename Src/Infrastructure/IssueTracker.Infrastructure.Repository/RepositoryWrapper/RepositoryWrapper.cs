@@ -1,5 +1,7 @@
 ﻿using IssueTracker.Domain.Common;
 using IssueTracker.Infrastructure.Persistence;
+using IssueTracker.Infrastructure.Repository.Repositories.IssueRepository;
+using IssueTracker.Infrastructure.Repository.Repositories.ParticipantRepository;
 using IssueTracker.Infrastructure.Repository.Repositories.ProjectRepository;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,7 +13,9 @@ namespace IssueTracker.Infrastructure.Repository.RepositoryWrapper
     public class RepositoryWrapper : IRepositoryWrapper
     {
         private ApplicationDbContext _repoContext;
-        public IProjectRepository _Project;
+        private IProjectRepository _Project;
+        private IIssueRepository _Issue;
+        private IParticipantRepository _Participant;
         public RepositoryWrapper(ApplicationDbContext repositoryContext)
         {
             _repoContext = repositoryContext;
@@ -47,5 +51,27 @@ namespace IssueTracker.Infrastructure.Repository.RepositoryWrapper
             }
         }
 
+        public IIssueRepository Issue
+        {
+            get
+            {
+                if (_Issue == null)
+                {
+                    _Issue = new IssueRepository(_repoContext);
+                }
+                return _Issue;
+            }
+        }
+
+        public IParticipantRepository Participant {
+            get
+            {
+                if (_Participant == null)
+                {
+                    _Participant = new ParticipantRepository(_repoContext);
+                }
+                return _Participant;
+            }
+        }
     }
 }

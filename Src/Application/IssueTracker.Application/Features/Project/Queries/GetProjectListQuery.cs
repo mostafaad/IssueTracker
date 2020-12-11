@@ -32,10 +32,8 @@ namespace IssueTracker.Application.Features.Projects.Queries
 
         public async Task<List<ProjectViewModel>> Handle(GetProjectListQuery request, CancellationToken cancellationToken)
         {
-
-            var ProjectList = _wrapper.Project.GetAllUserProjects(_currentUserInfo.UserId);
+            var ProjectList =  _wrapper.Project.GetAllUserProjectsAsync(_currentUserInfo.UserId);
             var MappedProjectList = _mapper.Map<List<ProjectViewModel>>(ProjectList);
-
 
             if (MappedProjectList == null)
                 MappedProjectList = new List<ProjectViewModel>();

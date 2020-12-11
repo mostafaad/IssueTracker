@@ -12,7 +12,7 @@ namespace IssueTracker.Domain.Entities
         public string Name { get; set; }
         public string Key { get; set; }
         public string Owner { get; set; }
-        public ApplicationUser User { get; set; }
+        public virtual ApplicationUser User { get; set; }
         public virtual ICollection<Issue> Issues{ get; set; }
         public virtual ICollection<Participants> Participants { get; set; }
 

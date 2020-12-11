@@ -9,3 +9,4 @@ D:\Task\Src\Domain\IssueTracker.Domain\obj\Debug\net5.0\IssueTracker.Domain.cspr
 D:\Task\Src\Domain\IssueTracker.Domain\obj\Debug\net5.0\IssueTracker.Domain.dll
 D:\Task\Src\Domain\IssueTracker.Domain\obj\Debug\net5.0\ref\IssueTracker.Domain.dll
 D:\Task\Src\Domain\IssueTracker.Domain\obj\Debug\net5.0\IssueTracker.Domain.pdb
+D:\Task\Src\Domain\IssueTracker.Domain\obj\Debug\net5.0\IssueTracker.Domain.csprojAssemblyReference.cache
