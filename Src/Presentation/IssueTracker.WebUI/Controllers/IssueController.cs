@@ -21,5 +21,11 @@ namespace IssueTracker.WebUI.Controllers
         {
             return Ok(await Mediator.Send(new CreateIssueCommand() { model = model, ProjectKey= ProjectKey }));
         }
+
+        [HttpGet("GetIssue/{IssueKey}")]
+        public async Task<ActionResult> GetIssue(string IssueKey)
+        {
+            return Ok(await Mediator.Send(new GetIssueQuery() { IssueKey = IssueKey }));
+        }
     }
 }

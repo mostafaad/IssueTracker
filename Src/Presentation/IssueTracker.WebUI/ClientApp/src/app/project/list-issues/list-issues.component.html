@@ -13,7 +13,11 @@
 <hr />
 <kendo-grid [kendoGridBinding]="gridData" [pageSize]="10" [pageable]="true" [sortable]="true" [filterable]="true"
             [height]="510">
-  <kendo-grid-column field="id" title="Key" [width]="50"></kendo-grid-column>
+  <kendo-grid-column field="id" title="Key" [width]="50">
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+      <span style="text-decoration: underline;" (click)="OpenIssue(dataItem.id)">{{dataItem.id}}</span>
+    </ng-template>
+  </kendo-grid-column>
   <kendo-grid-column field="title" title="Title" [width]="120"></kendo-grid-column>
   <kendo-grid-column field="status" title="Status" [width]="50">
     <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">

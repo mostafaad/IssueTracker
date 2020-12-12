@@ -21,6 +21,7 @@ export class ListIssuesComponent implements OnInit {
   public gridData: any;
   public participantGridData: any;
   isProjectOwner: any;
+  isUpdate=false;
 
   constructor(private service: HttpServices, private route: Router, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) { }
 
@@ -121,6 +122,9 @@ export class ListIssuesComponent implements OnInit {
 
   public close(component) {
     this.dialogOpened = false;
+    this.isUpdate = false;
+
+    this.issueForm.reset();
   }
 
   public open(component) {
@@ -131,7 +135,20 @@ export class ListIssuesComponent implements OnInit {
   }
   participantsclose() {
     this.participantsDialogOpened = false;
+  }
 
+  OpenIssue(id) {
+    this.dialogOpened = true;
+    this.service.get("Issue/GetIssue/" + id).subscribe(res => {
+      this.issueForm.patchValue({
+        title: res["title"],
+        description: res["description"],
+        assignee: res["assignee"],
+        status: res["status"]
+      });
+
+    });
+    this.isUpdate = true;
   }
   public action(status) {
     console.log(`Dialog result: ${status}`);
@@ -142,7 +159,6 @@ export class ListIssuesComponent implements OnInit {
 
     this.service.post("issue/" + this.id, this.issueForm.value).subscribe(
       result => {
-
 
       }, error => {
         console.log(error);
