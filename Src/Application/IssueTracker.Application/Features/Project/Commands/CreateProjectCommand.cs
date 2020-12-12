@@ -39,6 +39,7 @@ namespace IssueTracker.Application.Features.Projects.Commands
             ProjectObj.Owner = _currentUserInfo.UserId;
             ProjectObj.Participants = new List<Participants>();
 
+            //add owner Participant to project 
             ProjectObj.Participants.Add(new Participants()
             {
                 ParticipantUser = _currentUserInfo.UserId,

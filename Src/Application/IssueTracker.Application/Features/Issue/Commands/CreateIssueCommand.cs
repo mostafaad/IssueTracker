@@ -35,14 +35,17 @@ namespace IssueTracker.Application.Features.Issues.Commands
 
         public async Task<Issue> Handle(CreateIssueCommand request, CancellationToken cancellationToken)
         {
+            // Get project id
             var ProjectData = _wrapper.Project.FindByCondition(c => c.Key == request.ProjectKey).FirstOrDefault();
+
+            // Get last number of issue inside current project
             var MaxIssueNumber = _wrapper.Issue.FindByCondition(c => c.ProjectId == ProjectData.Id).Count() + 1;
             var IssueObj = _mapper.Map<Issue>(request.model);
             IssueObj.ProjectId = ProjectData.Id;
             IssueObj.Reporter = _currentUserInfo.UserId;
             IssueObj.Id = ProjectData.Key + "-" + MaxIssueNumber;
             _wrapper.Issue.Create(IssueObj);
-
+            //save issue
             await _wrapper.SaveChangesAsync(cancellationToken);
 
             return IssueObj;

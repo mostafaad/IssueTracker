@@ -31,6 +31,7 @@ namespace IssueTracker.Application.Features.Projects.Queries
 
         public async Task<bool> Handle(ValidateProjectKeyQuery request, CancellationToken cancellationToken)
         {
+            // check before add new project if the key is found befor.
             return await _wrapper.Project.ValidateProjectKeyAsync(request.ProjectKey);
         }
     }

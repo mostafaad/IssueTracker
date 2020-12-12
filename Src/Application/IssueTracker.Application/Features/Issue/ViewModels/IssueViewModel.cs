@@ -22,6 +22,7 @@ namespace IssueTracker.Application.Features.Issues.ViewModels
         public int ProjectId { get; set; }
         public DateTime Created { get; set; }
 
+        // add automapper between model and entity
         public void Mapping(Profile profile)
         {
             profile.CreateMap<IssueViewModel, Issue>();

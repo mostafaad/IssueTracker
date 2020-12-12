@@ -34,6 +34,7 @@ namespace IssueTracker.Application.Features.Issues.Queries
 
         public async Task<List<ParticipantViewModel>> Handle(GetParticipantListQuery request, CancellationToken cancellationToken)
         {
+            // Get current project data
             var ProjectData = _wrapper.Project.FindByCondition(c => c.Key == request.ProjectKey).FirstOrDefault();
 
             var ParticipantList = _wrapper.Participant.FindByCondition(c => c.ProjectId == ProjectData.Id).Include(c => c.User);

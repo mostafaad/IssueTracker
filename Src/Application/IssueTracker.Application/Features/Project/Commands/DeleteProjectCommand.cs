@@ -36,7 +36,7 @@ namespace IssueTracker.Application.Features.Projects.Commands
         public async Task<Unit> Handle(DeleteProjectCommand request, CancellationToken cancellationToken)
         {
            var ProjectData = _wrapper.Project.FindByCondition(c => c.Key == request.ProjectKey).FirstOrDefault();
-
+            // we update isdeteted field and we didn't delete the row form database
             ProjectData.IsDeleted = true;
             _wrapper.Project.Update(ProjectData);
             await _wrapper.SaveChangesAsync(cancellationToken);
