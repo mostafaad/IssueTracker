@@ -16,9 +16,9 @@ namespace IssueTracker.Infrastructure.Repository.Repositories.IssueRepository
         {
         }
 
-        public async Task<IEnumerable<Issue>> GetAllUserProjectIssuesAsync(int ProjectId)
+        public async Task<IEnumerable<Issue>> GetAllUserProjectIssuesAsync(string ProjectKey)
         {
-           return FindByCondition(x => x.ProjectId == ProjectId && x.IsDeleted == false).OrderByDescending(ow => ow.Created);
+           return FindByCondition(x => x.Project.Key == ProjectKey && x.IsDeleted == false).OrderByDescending(ow => ow.Created);
 
         }
     }

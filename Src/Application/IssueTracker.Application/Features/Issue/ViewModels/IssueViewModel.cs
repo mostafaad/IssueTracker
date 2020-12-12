@@ -18,6 +18,7 @@ namespace IssueTracker.Application.Features.Issues.ViewModels
         public string Assignee { get; set; }
         public Status Status { get; set; }
         public int ProjectId { get; set; }
+        public DateTime Created { get; set; }
 
         public void Mapping(Profile profile)
         {

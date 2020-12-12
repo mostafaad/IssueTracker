@@ -11,10 +11,10 @@ namespace IssueTracker.WebUI.Controllers
 {
     public class IssueController : ApiController
     {
-        [HttpGet("{ProjectId}")]
-        public async Task<ActionResult> Get(int ProjectId)
+        [HttpGet("{ProjectKey}")]
+        public async Task<ActionResult> Get(string ProjectKey)
         {
-            return Ok(await Mediator.Send(new GetIssueListQuery() { ProjectId = ProjectId }));
+            return Ok(await Mediator.Send(new GetIssueListQuery() { ProjectKey = ProjectKey }));
         }
         [HttpPost("{ProjectKey}")]
         public async Task<ActionResult> Create(string ProjectKey ,IssueViewModel model)

@@ -10,6 +10,6 @@ namespace IssueTracker.Infrastructure.Repository.Repositories.IssueRepository
 {
     public interface IIssueRepository : IRepositoryBase<Issue>
     {
-        Task<IEnumerable<Issue>> GetAllUserProjectIssuesAsync(int ProjectId);
+        Task<IEnumerable<Issue>> GetAllUserProjectIssuesAsync(string ProjectKey);
     }
 }

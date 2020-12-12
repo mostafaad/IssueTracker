@@ -14,7 +14,7 @@ namespace IssueTracker.Application.Features.Issues.Queries
 {
    public class GetIssueListQuery:IRequest<List<IssueViewModel>>
     {
-        public int ProjectId { get; set; }
+        public string ProjectKey { get; set; }
     }
 
     public class GetIssueListQueryHandler : IRequestHandler<GetIssueListQuery, List<IssueViewModel>>
@@ -32,7 +32,7 @@ namespace IssueTracker.Application.Features.Issues.Queries
 
         public async Task<List<IssueViewModel>> Handle(GetIssueListQuery request, CancellationToken cancellationToken)
         {
-            var IssueList = await _wrapper.Issue.GetAllUserProjectIssuesAsync(request.ProjectId);
+            var IssueList = await _wrapper.Issue.GetAllUserProjectIssuesAsync(request.ProjectKey);
             var MappedIssueList = _mapper.Map<List<IssueViewModel>>(IssueList);
 
             if (MappedIssueList == null)

@@ -2,6 +2,26 @@
 
 <h4>Issues List</h4>
 <hr />
+<kendo-grid [kendoGridBinding]="gridData" [pageSize]="10" [pageable]="true" [sortable]="true" [filterable]="true"
+            [height]="510">
+  <kendo-grid-column field="key" title="Key" [width]="140"></kendo-grid-column>
+  <kendo-grid-column field="title" title="Title" [width]="120"></kendo-grid-column>
+  <kendo-grid-column field="status" title="Status" [width]="50">
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+      <span *ngIf="dataItem.status == 0">ToDo</span>
+      <span *ngIf="dataItem.status == 1">InProgress</span>
+      <span *ngIf="dataItem.status == 2">Done</span>
+
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="created" title="Created" [width]="120">
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+      <span>{{dataItem.created | date:"medium"}}</span> 
+    </ng-template>
+  </kendo-grid-column>
+
+</kendo-grid>
+
 <kendo-dialog title="Create issue" *ngIf="dialogOpened" (close)="close('dialog')" [minWidth]="250" [width]="450">
   <form [formGroup]="issueForm" (ngSubmit)="onSubmit()">
     <fieldset>
@@ -23,29 +43,26 @@
       </div>
       <div class="mb-3">
         <label class="form-label">Assignee</label>
-        <kendo-dropdownlist  [data]="AssigneeItems"
-                            [filterable]="true"
-                            [textField]="'email'"
-                            [valueField]="'id'" 
-                            class="form-control">
-        </kendo-dropdownlist>
-
+        <ng-select [items]="AssigneeItems" bindLabel="email" bindValue="id" formControlName="assignee" [ngClass]="{ 'is-invalid': submitted && f.assignee.errors }">
+        </ng-select>
+        <div *ngIf="submitted && f.assignee.errors" class="invalid-feedback">
+          <div *ngIf="f.assignee.errors.required">assignee is required</div>
+        </div>
       </div>
       <div class="mb-3">
         <label class="form-label">Status</label>
-        <kendo-dropdownlist [data]="status"
-                            [textField]="'text'"
-                            [valueField]="'value'"
-                            class="form-control">
-        </kendo-dropdownlist>
 
-
+        <ng-select [items]="status" bindLabel="text" bindValue="value" formControlName="status" [ngClass]="{ 'is-invalid': submitted && f.assignee.errors }">
+        </ng-select>
+        <div *ngIf="submitted && f.status.errors" class="invalid-feedback">
+          <div *ngIf="f.status.errors.required">status is required</div>
+        </div>
       </div>
     </fieldset>
 
     <kendo-dialog-actions>
-      <button kendoButton  (click)="action('no')">Cancel</button>
-      <button kendoButton type="submit"  primary="true">Create</button>
+      <button kendoButton (click)="action('no')">Cancel</button>
+      <button kendoButton type="submit" primary="true">Create</button>
     </kendo-dialog-actions>
   </form>
 

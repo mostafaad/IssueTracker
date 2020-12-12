@@ -40,7 +40,7 @@ namespace IssueTracker.Application.Features.Issues.Commands
 
             var IssueObj = _mapper.Map<Issue>(request.model);
             IssueObj.ProjectId = ProjectData.Id;
-
+            IssueObj.Reporter = _currentUserInfo.UserId;
             _wrapper.Issue.Create(IssueObj);
 
             await  _wrapper.SaveChangesAsync(cancellationToken);

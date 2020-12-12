@@ -11,9 +11,12 @@ import { HttpServices } from '../../../services/HttpServices';
 export class ListIssuesComponent implements OnInit {
   id: any;
   public dialogOpened = false;
+  public windowOpened = false;
+
   issueForm: FormGroup;
   submitted = false;
   AssigneeItems: any;
+  public gridData: any;
 
   constructor(private service: HttpServices, private route: Router, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) { }
 
@@ -28,7 +31,10 @@ export class ListIssuesComponent implements OnInit {
   ngOnInit() {
     this.issueForm = this.formBuilder.group({
       title: ['', Validators.required],
-      description: ['', Validators.required]
+      description: ['', Validators.required],
+      assignee: ['', Validators.required],
+      status: ['', Validators.required]
+
     });
 
     this.activatedRoute.params.subscribe(params => {
@@ -40,8 +46,9 @@ export class ListIssuesComponent implements OnInit {
       this.AssigneeItems = result;
     });
 
-    this.service.get("issues/" + this.id).subscribe(result => {
+    this.service.get("issue/" + this.id).subscribe(result => {
       console.log("");
+      this.gridData = result;
     });
 
   }
@@ -56,6 +63,7 @@ export class ListIssuesComponent implements OnInit {
 
     this.service.post("issue/" + this.id, this.issueForm.value).subscribe(
       result => {
+        this.dialogOpened = false;
 
       }, error => {
         console.log(error);

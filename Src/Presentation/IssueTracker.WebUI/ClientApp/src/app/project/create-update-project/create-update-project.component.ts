@@ -18,11 +18,38 @@ export class CreateUpdateProjectComponent implements OnInit {
 
     this.projectForm = this.formBuilder.group({
       name: ['', Validators.required],
-      key: ['', [Validators.required, Validators.maxLength(4), Validators.minLength(3), Validators.pattern('^[A-Z \-\']+')]]
+      key: ['', [Validators.required, Validators.maxLength(4), Validators.minLength(3),
+          Validators.pattern('^[A-Z \-\']+')]]
+    }, {
+
+        validator: this.ValidateKey('key')
+
     });
   }
 
   get f() {return this.projectForm.controls; }
+
+  ValidateKey(key) {
+    return (formGroup: FormGroup) => {
+      const keyControl = formGroup.controls[key];
+      if (keyControl.errors && !keyControl.errors.validateKey) {
+        // return if another validator has already found an error on the matchingControl
+        return;
+      }
+      this.service.get("project/ValidateProjectKey/" + keyControl.value).subscribe(res => {
+        console.log(res);
+        if (res ) {
+          keyControl.setErrors({ validateKey: true });
+
+        } else {
+          keyControl.setErrors(null);
+        }
+
+      });
+
+    
+    }
+  }
 
   onSubmit() {
     this.submitted = true;

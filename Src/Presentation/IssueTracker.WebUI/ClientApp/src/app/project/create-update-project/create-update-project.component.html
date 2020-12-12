@@ -18,6 +18,8 @@
         <div *ngIf="f.key.errors.maxlength">Key Maxlength is 4 letters</div>
         <div *ngIf="f.key.errors.minlength">Key MinLength is 3 letters</div>
         <div *ngIf="f.key.errors.pattern">All letters must be capitalized</div>
+        <div *ngIf="f.key.errors.validateKey">This key is already found , please change it</div>
+
       </div>
 
     </div>
