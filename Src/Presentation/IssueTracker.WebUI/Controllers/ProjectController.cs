@@ -32,5 +32,17 @@ namespace IssueTracker.WebUI.Controllers
         {
             return Ok(await Mediator.Send(new ValidateProjectKeyQuery() { ProjectKey = ProjectKey }));
         }
+
+        [HttpGet("validateProjectOwner/{ProjectKey}")]
+        public async Task<ActionResult> validateProjectOwner(string ProjectKey)
+        {
+            return Ok(await Mediator.Send(new ValidateProjectOwnerQuery() { ProjectKey = ProjectKey }));
+        }
+
+        [HttpGet("DeleteProject/{ProjectKey}")]
+        public async Task<ActionResult> DeleteProject(string ProjectKey)
+        {
+            return Ok(await Mediator.Send(new DeleteProjectCommand() { ProjectKey = ProjectKey }));
+        }
     }
 }

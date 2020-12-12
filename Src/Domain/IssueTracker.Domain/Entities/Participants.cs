@@ -13,6 +13,7 @@ namespace IssueTracker.Domain.Entities
 
         public int ProjectId { get; set; }
         public Project Project { get; set; }
+        public bool IsOwner { get; set; }
 
         public string ParticipantUser { get; set; }
         public ApplicationUser User { get; set; }

@@ -12,6 +12,8 @@ namespace IssueTracker.Application.Features.Issues.ViewModels
 {
    public class IssueViewModel: IMapFrom<Issue>
     {
+        public string Id { get; set; }
+
         public string Title { get; set; }
         public string Description { get; set; }
         public string Reporter { get; set; }

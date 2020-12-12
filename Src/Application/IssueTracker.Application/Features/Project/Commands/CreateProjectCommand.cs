@@ -37,9 +37,16 @@ namespace IssueTracker.Application.Features.Projects.Commands
         {
             var ProjectObj = _mapper.Map<Project>(request.project);
             ProjectObj.Owner = _currentUserInfo.UserId;
+            ProjectObj.Participants = new List<Participants>();
+
+            ProjectObj.Participants.Add(new Participants()
+            {
+                ParticipantUser = _currentUserInfo.UserId,
+                IsOwner = true
+            }) ;
             _wrapper.Project.Create(ProjectObj);
 
-            await  _wrapper.SaveChangesAsync(cancellationToken);
+            await _wrapper.SaveChangesAsync(cancellationToken);
 
             return ProjectObj;
         }

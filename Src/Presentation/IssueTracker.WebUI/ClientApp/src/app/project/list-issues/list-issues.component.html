@@ -1,10 +1,19 @@
-<button class="btn btn-primary" *ngIf="!dialogOpened && !windowOpened" (click)="open('dialog')">Create</button>
+<div class="row justify-content-between">
+  <div class="col-4">
+    <button class="btn btn-primary" *ngIf="!dialogOpened && !windowOpened" (click)="open('dialog')">Create</button>
+  </div>
+  <div class="col-4">
+    <button class="btn btn-success" style="margin-right: 25px;" *ngIf="!participantsDialogOpened && !participantsWindowOpened" (click)="participantsopen('dialog')">View Participants</button>
+
+    <button class="btn btn-danger" *ngIf="isProjectOwner" (click)="deleteProject()">Delete Project</button>
+  </div>
+</div>
 
 <h4>Issues List</h4>
 <hr />
 <kendo-grid [kendoGridBinding]="gridData" [pageSize]="10" [pageable]="true" [sortable]="true" [filterable]="true"
             [height]="510">
-  <kendo-grid-column field="key" title="Key" [width]="140"></kendo-grid-column>
+  <kendo-grid-column field="id" title="Key" [width]="50"></kendo-grid-column>
   <kendo-grid-column field="title" title="Title" [width]="120"></kendo-grid-column>
   <kendo-grid-column field="status" title="Status" [width]="50">
     <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
@@ -14,9 +23,9 @@
 
     </ng-template>
   </kendo-grid-column>
-  <kendo-grid-column field="created" title="Created" [width]="120">
+  <kendo-grid-column field="created" title="Created" [width]="90">
     <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
-      <span>{{dataItem.created | date:"medium"}}</span> 
+      <span>{{dataItem.created | date:"medium"}}</span>
     </ng-template>
   </kendo-grid-column>
 
@@ -61,9 +70,36 @@
     </fieldset>
 
     <kendo-dialog-actions>
-      <button kendoButton (click)="action('no')">Cancel</button>
+      <button kendoButton (click)="close('no')">Cancel</button>
       <button kendoButton type="submit" primary="true">Create</button>
     </kendo-dialog-actions>
   </form>
 
+</kendo-dialog>
+
+<kendo-dialog title="Participant List" *ngIf="participantsDialogOpened" (close)="participantsclose()" [minWidth]="250" [width]="450">
+
+  <form [formGroup]="participantForm" (ngSubmit)="onParticipantsSubmit()">
+    <fieldset>
+
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <ng-select [items]="AssigneeItems" bindLabel="email" bindValue="id" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.assignee.errors }">
+        </ng-select>
+        <div *ngIf="submitted && f.assignee.errors" class="invalid-feedback">
+          <div *ngIf="f.assignee.errors.required">assignee is required</div>
+        </div>
+      </div>
+    </fieldset>
+
+    <kendo-dialog-actions>
+      <button kendoButton (click)="participantsclose()">Cancel</button>
+      <button kendoButton type="submit" primary="true">Create</button>
+    </kendo-dialog-actions>
+  </form>
+  <kendo-grid [kendoGridBinding]="participantGridData" [pageSize]="10" [pageable]="true" [sortable]="true" [filterable]="true"
+              [height]="510">
+    <kendo-grid-column field="user.email" title="Email" [width]="140"></kendo-grid-column>
+
+  </kendo-grid>
 </kendo-dialog>

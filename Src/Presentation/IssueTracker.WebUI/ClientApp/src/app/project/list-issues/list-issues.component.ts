@@ -12,15 +12,20 @@ export class ListIssuesComponent implements OnInit {
   id: any;
   public dialogOpened = false;
   public windowOpened = false;
-
+  public participantsDialogOpened = false;
+  public participantsWindowOpened = false;
   issueForm: FormGroup;
+  participantForm: FormGroup;
   submitted = false;
   AssigneeItems: any;
   public gridData: any;
+  public participantGridData: any;
+  isProjectOwner: any;
 
   constructor(private service: HttpServices, private route: Router, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) { }
 
   get f() { return this.issueForm.controls; }
+  get fa() { return this.participantForm.controls; }
 
   public status: Array<{ text: string, value: number }> = [
     { text: 'Todo', value: 0 },
@@ -28,7 +33,19 @@ export class ListIssuesComponent implements OnInit {
     { text: 'Done', value: 2 }
   ];
 
-  ngOnInit() {
+  getProjectIssues() {
+    this.service.get("issue/" + this.id).subscribe(result => {
+      console.log("");
+      this.gridData = result;
+    });
+  }
+  getParticipantIssues() {
+    this.service.get("Participant/" + this.id).subscribe(result => {
+      console.log(result);
+      this.participantGridData = result;
+    });
+  }
+  async ngOnInit() {
     this.issueForm = this.formBuilder.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -37,8 +54,18 @@ export class ListIssuesComponent implements OnInit {
 
     });
 
+    this.participantForm = this.formBuilder.group({
+      email: ['', Validators.required]
+
+    });
+
     this.activatedRoute.params.subscribe(params => {
       this.id = params['id'];
+    });
+
+    this.service.get("project/validateProjectOwner/" + this.id).subscribe(result => {
+
+      this.isProjectOwner = result;
     });
 
     this.service.get("user").subscribe(result => {
@@ -46,10 +73,30 @@ export class ListIssuesComponent implements OnInit {
       this.AssigneeItems = result;
     });
 
-    this.service.get("issue/" + this.id).subscribe(result => {
-      console.log("");
-      this.gridData = result;
+    this.getProjectIssues();
+    this.getParticipantIssues();
+  }
+
+  deleteProject() {
+    this.service.get("project/DeleteProject/" + this.id).subscribe(result => {
+      this.route.navigateByUrl("/home");
     });
+  }
+
+  onParticipantsSubmit() {
+    if (this.participantForm.invalid) {
+      return;
+    }
+
+    this.service.post("Participant/" + this.id + "/" + this.participantForm.value.email, this.participantForm.value).subscribe(
+      result => {
+        this.getParticipantIssues();
+
+      }, error => {
+        console.log(error);
+        this.service.onFailedOutline("operation falied");
+      }
+    );
 
   }
   onSubmit() {
@@ -59,11 +106,11 @@ export class ListIssuesComponent implements OnInit {
     if (this.issueForm.invalid) {
       return;
     }
-    
 
     this.service.post("issue/" + this.id, this.issueForm.value).subscribe(
       result => {
         this.dialogOpened = false;
+        this.getProjectIssues();
 
       }, error => {
         console.log(error);
@@ -73,13 +120,19 @@ export class ListIssuesComponent implements OnInit {
   }
 
   public close(component) {
-    this[component + 'Opened'] = false;
+    this.dialogOpened = false;
   }
 
   public open(component) {
     this[component + 'Opened'] = true;
   }
+  participantsopen() {
+    this.participantsDialogOpened = true;
+  }
+  participantsclose() {
+    this.participantsDialogOpened = false;
 
+  }
   public action(status) {
     console.log(`Dialog result: ${status}`);
 

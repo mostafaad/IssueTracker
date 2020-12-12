@@ -192,10 +192,8 @@ namespace IssueTracker.Infrastructure.Migrations
 
             modelBuilder.Entity("IssueTracker.Domain.Entities.Issue", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Assignee")
                         .HasColumnType("nvarchar(max)");
@@ -251,6 +249,9 @@ namespace IssueTracker.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsOwner")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("LastModified")

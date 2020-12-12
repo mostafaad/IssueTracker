@@ -18,7 +18,7 @@ namespace IssueTracker.Infrastructure.Repository.Repositories.ProjectRepository
 
         public IEnumerable<Project> GetAllUserProjectsAsync(string UserId)
         {
-            return FindByCondition(x => x.Owner == UserId && x.IsDeleted == false).Include(c=>c.User).OrderByDescending(ow => ow.Created); 
+            return FindByCondition(x => (x.Owner == UserId || x.Participants.Any(c=>c.ParticipantUser == UserId) )&& x.IsDeleted == false).Include(c=>c.User).OrderByDescending(ow => ow.Created); 
         }
 
         public async Task<bool> ValidateProjectKeyAsync(string projectKey)

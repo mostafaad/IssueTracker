@@ -16,7 +16,7 @@ namespace IssueTracker.Application.Features.Issues.Commands
 {
     public class CreateIssueCommand : IRequest<Issue>
     {
-        public IssueViewModel  model{ get; set; }
+        public IssueViewModel model { get; set; }
         public string ProjectKey { get; set; }
     }
 
@@ -31,19 +31,19 @@ namespace IssueTracker.Application.Features.Issues.Commands
             _mapper = mapper;
             _currentUserInfo = currentUserInfo;
             _wrapper = wrapper;
-
         }
 
         public async Task<Issue> Handle(CreateIssueCommand request, CancellationToken cancellationToken)
         {
             var ProjectData = _wrapper.Project.FindByCondition(c => c.Key == request.ProjectKey).FirstOrDefault();
-
+            var MaxIssueNumber = _wrapper.Issue.FindByCondition(c => c.ProjectId == ProjectData.Id).Count() + 1;
             var IssueObj = _mapper.Map<Issue>(request.model);
             IssueObj.ProjectId = ProjectData.Id;
             IssueObj.Reporter = _currentUserInfo.UserId;
+            IssueObj.Id = ProjectData.Key + "-" + MaxIssueNumber;
             _wrapper.Issue.Create(IssueObj);
 
-            await  _wrapper.SaveChangesAsync(cancellationToken);
+            await _wrapper.SaveChangesAsync(cancellationToken);
 
             return IssueObj;
         }
